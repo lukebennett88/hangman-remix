@@ -1,5 +1,5 @@
 import type { ActionFunction } from "remix";
-import { Form, Link, redirect } from "remix";
+import { Form, redirect } from "remix";
 
 import { createGame } from "~/models/game.server";
 import { requireUserId } from "~/session.server";
