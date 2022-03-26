@@ -4,13 +4,13 @@ import {
   Form,
   json,
   Link,
-  useActionData,
   redirect,
+  useActionData,
   useSearchParams,
 } from "remix";
 
-import { createUserSession, getUserId } from "~/session.server";
 import { verifyLogin } from "~/models/user.server";
+import { createUserSession, getUserId } from "~/session.server";
 import { validateEmail } from "~/utils";
 
 export const loader: LoaderFunction = async ({ request }) => {
@@ -67,7 +67,7 @@ export const action: ActionFunction = async ({ request }) => {
     request,
     userId: user.id,
     remember: remember === "on" ? true : false,
-    redirectTo: typeof redirectTo === "string" ? redirectTo : "/notes",
+    redirectTo: typeof redirectTo === "string" ? redirectTo : "/games",
   });
 };
 
@@ -79,7 +79,7 @@ export const meta: MetaFunction = () => {
 
 export default function LoginPage() {
   const [searchParams] = useSearchParams();
-  const redirectTo = searchParams.get("redirectTo") || "/notes";
+  const redirectTo = searchParams.get("redirectTo") || "/games";
   const actionData = useActionData() as ActionData;
   const emailRef = React.useRef<HTMLInputElement>(null);
   const passwordRef = React.useRef<HTMLInputElement>(null);

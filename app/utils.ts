@@ -3,6 +3,8 @@ import { useMatches } from "remix";
 
 import type { User } from "~/models/user.server";
 
+import { wordList } from "./word-list";
+
 /**
  * This base hook is used in other hooks to quickly search for specific data
  * across all loader data using useMatches.
@@ -44,4 +46,8 @@ export function useUser(): User {
 
 export function validateEmail(email: unknown): email is string {
   return typeof email === "string" && email.length > 3 && email.includes("@");
+}
+
+export function getRandomWord() {
+  return wordList[Math.floor(Math.random() * wordList.length)];
 }
