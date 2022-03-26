@@ -11,7 +11,7 @@ export const action: ActionFunction = async ({ request }) => {
   return redirect(`/games/${game.id}`);
 };
 
-export default function gameIndexPage() {
+export default function GameIndexPage() {
   return (
     <Form method="post">
       No game selected. Select a game on the left, or{" "}
